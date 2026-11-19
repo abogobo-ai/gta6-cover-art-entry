@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sunset Vice Studio — GTA-style Cover Maker</title>
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<main class="app">
+  <aside class="panel">
+    <header class="brand">
+      <h1>SUNSET <span>VICE</span> STUDIO</h1>
+      <p>GTA-style cover maker — Vice Shores edition</p>
+    </header>
+    <section class="group">
+      <h2>Layout</h2>
+      <div class="layout-row">
+        <button type="button" class="layout-btn on" data-layout="side">Hero Side 16:9</button>
+        <button type="button" class="layout-btn" data-layout="top">Hero Top 1:1</button>
+        <button type="button" class="layout-btn" data-layout="poster">Poster 4:5</button>
+      </div>
+    </section>
+    <section class="group">
+      <h2>Cover text</h2>
+      <label>Title <input id="f-title" type="text" maxlength="30" value="SUNSET GETAWAY"></label>
+      <label>Tagline <input id="f-tagline" type="text" maxlength="42" value="EVERY MILE IS A STORY"></label>
+      <label>City <input id="f-city" type="text" maxlength="24" value="VICE SHORES"></label>
+      <div class="checks">
+        <label><input id="b-burst" type="checkbox" checked> EST. 2026 burst</label>
+        <label><input id="b-sticker" type="checkbox" checked> NEW sticker</label>
+        <label><input id="b-heat" type="checkbox" checked> HEAT stars</label>
+      </div>
+      <button type="button" id="fill-one" class="ghost">Fill all panels from active photo</button>
+    </section>
+    <section class="group grow">
+      <h2>Photo slots — click a slot, drag the cover to pan, scroll to zoom</h2>
+      <div id="slots"></div>
+    </section>
+    <footer class="foot">
+      <button type="button" id="export">Export PNG</button>
+      <p id="status" role="status"></p>
+    </footer>
+  </aside>
+  <section class="stage">
+    <canvas id="cover" width="1920" height="1080" aria-label="Cover preview"></canvas>
+  </section>
+</main>
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>
