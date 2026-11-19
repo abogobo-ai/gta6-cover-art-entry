@@ -262,12 +262,19 @@ function drawBanner(ctx, rect, state) {
   ctx.fillText(title, x + w / 2, titleY);
   ctx.shadowColor = 'transparent'; ctx.shadowBlur = 0; ctx.shadowOffsetY = 0;
 
-  // tagline
+  // tagline, on a soft dark band so it stays readable over the skyline
   if (tagline) {
     ctx.font = `700 ${h * 0.085}px ${FONT_STACK}`;
+    const spacing = h * 0.028;
+    const tw = [...tagline].reduce((a, ch) => a + ctx.measureText(ch).width, 0) + spacing * (tagline.length - 1);
+    const ty = titleY + h * 0.148;
+    ctx.beginPath();
+    ctx.roundRect(x + w / 2 - tw / 2 - h * 0.07, ty - h * 0.105, tw + h * 0.14, h * 0.15, h * 0.07);
+    ctx.fillStyle = 'rgba(18,6,32,0.55)';
+    ctx.fill();
     ctx.fillStyle = '#ffe9f6';
     ctx.shadowColor = 'rgba(0,0,0,0.6)'; ctx.shadowBlur = 6;
-    drawSpacedText(ctx, tagline, x + w / 2, titleY + h * 0.155, h * 0.028);
+    drawSpacedText(ctx, tagline, x + w / 2, ty, spacing);
     ctx.shadowColor = 'transparent'; ctx.shadowBlur = 0;
   }
 }
@@ -294,8 +301,8 @@ export function drawCover(canvas, state) {
   const badges = state.badges ?? { burst: true, sticker: true, heat: true };
   if (badges.burst) drawStarburst(ctx, W * 0.055, rects.banner.y - H * 0.005, Math.min(W, H) * 0.075, 14, ['EST.', '2026']);
   if (badges.sticker) {
-    const sx = state.layout === 'side' ? W * 0.545 : W * 0.93;
-    const sy = state.layout === 'side' ? H * 0.06 : H * 0.05;
+    const sx = state.layout === 'side' ? W * 0.545 : W * 0.065;
+    const sy = state.layout === 'side' ? H * 0.06 : H * 0.055;
     drawNewSticker(ctx, sx, sy, Math.min(W, H) * 0.052);
   }
   if (badges.heat) {

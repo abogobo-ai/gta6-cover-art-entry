@@ -12,6 +12,8 @@
     <header class="brand">
       <h1>SUNSET <span>VICE</span> STUDIO</h1>
       <p>GTA-style cover maker — Vice Shores edition</p>
+      <button type="button" id="export">Export PNG</button>
+      <p id="status" role="status"></p>
     </header>
     <section class="group">
       <h2>Layout</h2>
@@ -33,17 +35,13 @@
       </div>
       <button type="button" id="fill-one" class="ghost">Fill all panels from active photo</button>
     </section>
-    <section class="group grow">
-      <h2>Photo slots — click a slot, drag the cover to pan, scroll to zoom</h2>
-      <div id="slots"></div>
-    </section>
-    <footer class="foot">
-      <button type="button" id="export">Export PNG</button>
-      <p id="status" role="status"></p>
-    </footer>
   </aside>
   <section class="stage">
     <canvas id="cover" width="1920" height="1080" aria-label="Cover preview"></canvas>
+  </section>
+  <section id="dock">
+    <h2>Photo slots — click a slot, then drag the cover to pan it, scroll to zoom</h2>
+    <div id="slots"></div>
   </section>
 </main>
 <script type="module" src="./src/main.js"></script>

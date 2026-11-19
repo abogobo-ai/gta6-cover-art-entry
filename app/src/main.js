@@ -20,7 +20,7 @@ const GRADES = [
   { id: 'dusk', label: 'Dusk' },
 ];
 const SLOT_NAMES = ['HERO', 'PANEL 1', 'PANEL 2', 'PANEL 3', 'PANEL 4'];
-const DEFAULT_GRADES = ['golden', 'global', 'neon', 'dusk', 'golden'];
+const DEFAULT_GRADES = ['golden', 'global', 'neon', 'dusk', 'dusk'];
 const DEFAULT_ORDERS = {
   side: ['supercar', 'heroine', 'neon', 'pier', 'boulevard'],
   top: ['heroine', 'supercar', 'neon', 'pier', 'boulevard'],
